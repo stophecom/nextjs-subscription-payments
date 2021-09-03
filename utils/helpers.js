@@ -1,11 +1,11 @@
 export const getURL = () => {
   const url =
-    process?.env?.URL && process.env.URL !== ''
+    process?.env?.URL 
       ? process.env.URL
-      : process?.env?.VERCEL_URL && process.env.VERCEL_URL !== ''
+      : process?.env?.VERCEL_URL
       ? process.env.VERCEL_URL
       : 'http://localhost:3000';
-  return url.includes('http') ? url : `https://${url}`;
+  return url.startsWith('http') ? url : `https://${url}`;
 };
 
 export const postData = async ({ url, token, data = {} }) => {
